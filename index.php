@@ -6,6 +6,8 @@ $merlin = new Personnage("Merlin");
 
 $harry = new Personnage("Harry");
 
+echo $merlin->getNom();
+
 $merlin->attaque($harry);
 if ($harry->vie <= 0)
 {
