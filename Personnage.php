@@ -2,7 +2,10 @@
 
 class Personnage
 {
-    private $vie = 80;
+
+    const MAX_VIE = 100;
+
+    protected $vie = 80;
     private $atk = 20;
     private $nom;
 
@@ -33,12 +36,9 @@ class Personnage
 
     public function regenerer($vie = null)
     {
-        if (is_null($vie))
-        {
-            $this->vie = 100;
-        }
-        else
-        {
+        if (is_null($vie)) {
+            $this->vie = self::MAX_VIE;
+        } else {
             $this->vie += $vie;
         }
     }
@@ -50,13 +50,12 @@ class Personnage
 
     private function empecher_negatif()
     {
-        if ($this->vie < 0)
-        {
+        if ($this->vie < 0) {
             $this->vie = 0;
         }
     }
 
-    public function attaque($cible)
+    public function attaque(Personnage $cible)
     {
         $cible->vie -= $this->atk;
         $cible->empecher_negatif();
