@@ -1,5 +1,7 @@
 <?php
 
+namespace Tutoriel;
+
 class Text
 {
 
@@ -8,9 +10,12 @@ class Text
 
     public static function withZero($chiffre)
     {
-        if ($chiffre < 10) {
+        if ($chiffre < 10)
+        {
             return '0' . $chiffre . self::SUFFIX;
-        } else {
+        }
+        else
+        {
             return $chiffre . self::SUFFIX;
         }
     }

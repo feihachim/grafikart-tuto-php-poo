@@ -1,13 +1,15 @@
 <?php
 
+namespace Tutoriel;
+
 class Personnage
 {
 
-    const MAX_VIE = 100;
+    protected static $max_vie = 120;
 
     protected $vie = 80;
-    private $atk = 20;
-    private $nom;
+    protected $atk = 20;
+    protected $nom;
 
     public function __construct($nom)
     {
@@ -36,9 +38,12 @@ class Personnage
 
     public function regenerer($vie = null)
     {
-        if (is_null($vie)) {
-            $this->vie = self::MAX_VIE;
-        } else {
+        if (is_null($vie))
+        {
+            $this->vie = self::$max_vie;
+        }
+        else
+        {
             $this->vie += $vie;
         }
     }
@@ -50,7 +55,8 @@ class Personnage
 
     private function empecher_negatif()
     {
-        if ($this->vie < 0) {
+        if ($this->vie < 0)
+        {
             $this->vie = 0;
         }
     }
